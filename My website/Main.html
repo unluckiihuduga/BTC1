@@ -7,10 +7,10 @@
     <style>
         @font-face {
             font-family: 'Pawon';
-            src: url('C:/Users/chara/OneDrive/Desktop/My website/fonts/Pawon.ttf') format('truetype');
+            src: url('fonts/Pawon.ttf') format('truetype');
         }
         body {
-            background-image: url('C:/Users/chara/OneDrive/Desktop/My website/images/throift.png');
+            background-image: url('images/throift.png');
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
@@ -121,13 +121,13 @@
             }
         }
 
-        function navigateToTopwear1Page() {
+        function navigateToItemsPage() {
             const dropdown = document.getElementById('myDropdown');
             const selectedValue = dropdown.value;
             if (selectedValue === 'default') {
                 showSection('Home');
             } else if (selectedValue === '1') {
-                window.location.href = 'C:/Users/chara/OneDrive/Desktop/My website/Topwear1.html';
+                window.location.href = 'Topwear1.html';
             } else {
                 alert('This option is not available yet.');
             }
