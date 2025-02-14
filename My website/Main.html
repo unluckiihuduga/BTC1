@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Basic Website</title>
+    <style>
+        @font-face {
+            font-family: 'Pawon';
+            src: url('C:/Users/chara/OneDrive/Desktop/My website/fonts/Pawon.ttf') format('truetype');
+        }
+        body {
+            background-image: url('C:/Users/chara/OneDrive/Desktop/My website/images/throift.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        .hidden {
+            display: none;
+        }
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header h1 {
+            font-family: 'Pawon', sans-serif; /* Apply the custom font */
+            font-size: 36px; /* Customize font size */
+            font-weight: bold; /* Customize boldness */
+            color: #333; /* Customize color */
+        }
+        nav {
+            background-color: rgba(255, 255, 255, 0.8); /* White background with 80% opacity */
+            border: 2px solid black; /* Add border to the nav element */
+            padding: 10px; /* Add padding inside the border */
+            border-radius: 5px; /* Optional: Add rounded corners */
+        }
+        nav ul {
+            display: flex;
+            justify-content: flex-start;
+            width: 100%;
+            padding: 0;
+            list-style: none;
+        }
+        nav ul li {
+            margin-right: 20px;
+        }
+        nav ul li a {
+            font-weight: bold;
+            text-decoration: none; /* Remove underline from links */
+            padding: 5px 10px; /* Add padding to links */
+            border: 1px solid transparent; /* Add transparent border for hover effect */
+            border-radius: 3px; /* Optional: Add rounded corners to links */
+        }
+        nav ul li a:hover {
+            border-color: black; /* Change border color on hover */
+        }
+        .dropdown-container {
+            margin-top: 40px;
+            text-align: center;
+        }
+        .dropdown-container label {
+            font-size: 16px; /* Customize font size */
+            font-weight: bold; /* Customize boldness */
+        }
+        .dropdown-container select {
+            font-size: 16px; /* Customize font size */
+            font-weight: bold; /* Customize boldness */
+            margin-top: 10px; /* Customize placement */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Bangalore Thrift Club.</h1>
+        <nav>
+            <ul>
+                <li><a href="#Home" onclick="showSection('Home')">Home</a></li>
+                <li><a href="#about" onclick="showSection('about')">About</a></li>
+                <li><a href="mailto:example@example.com">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about" class="hidden">
+            <h2>About</h2>
+            <p>Our vision is to build a platform for thrifting good clothes.</p>
+        </section>
+        <section id="Home" class="hidden">
+            <h2>Home</h2>
+            <p>Start thrifting today, and thrift as much as you like.</p>
+        </section>
+
+        <section id="mainContent" class="dropdown-container">
+            <label for="myDropdown">Choose an option:</label>
+            <select id="myDropdown" onchange="navigateToItemsPage()">
+                <option value="default">Default</option>
+                <option value="1">Topwear</option>
+                <option value="2">Bottomwear</option>
+                <option value="3">Footwear</option>
+                <option value="4">Accessories</option>
+            </select>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 My Website. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('main section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            if (sectionId === 'Home') {
+                document.getElementById('mainContent').classList.remove('hidden');
+            } else {
+                document.getElementById(sectionId).classList.remove('hidden');
+            }
+        }
+
+        function navigateToTopwear1Page() {
+            const dropdown = document.getElementById('myDropdown');
+            const selectedValue = dropdown.value;
+            if (selectedValue === 'default') {
+                showSection('Home');
+            } else if (selectedValue === '1') {
+                window.location.href = 'C:/Users/chara/OneDrive/Desktop/My website/Topwear1.html';
+            } else {
+                alert('This option is not available yet.');
+            }
+        }
+
+        // Set the default option when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('myDropdown').value = 'default';
+        });
+    </script>
+
+</body>
+</html>
